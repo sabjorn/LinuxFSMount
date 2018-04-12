@@ -16,7 +16,6 @@ fi
 
 cd ${HOME}
 cp /fs/${IMG_NAME} ${HOME}
-losetup -P /dev/loop0 ${IMG_NAME}
 
 SECTOR_SIZE=$(fdisk -l ${IMG_NAME} | grep "Units: sectors of" | cut -d " " -f8)
 FS_INFO=$(fdisk -l ${IMG_NAME} | grep ${IMG_NAME}2)
