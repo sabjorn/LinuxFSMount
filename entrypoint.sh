@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 # About:
 # Mounts FS
 
