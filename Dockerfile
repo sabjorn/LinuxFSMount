@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-RUN runDeps='vim simg2img img2simg' \
+RUN runDeps='vim simg2img img2simg patch' \
     && set -x \
     && apt-get update \
     && apt-get install -y $runDeps --no-install-recommends  \
