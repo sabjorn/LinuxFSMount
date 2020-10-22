@@ -7,7 +7,7 @@ The original intention of this image is to be able to modify the contents of the
 ## Docker
 ### Building
 ```
-docker build sabjorn/linuxfsmount .
+docker build -t sabjorn/linuxfsmount .
 ```
 
 ### Running
