@@ -15,6 +15,8 @@ docker build -t sabjorn/linuxfsmount .
 docker run -it --rm -e IMG_NAME=/fs/[img name] -v [host img location]:/fs --privileged sabjorn/linuxfsmount bash
 ```
 
+optionally, adding `-e ENTER_CHROOT=1` will automatically place docker container into mounted image. 
+
 ### Mounting Images
 Images mount autmatically with `entrypoint.sh` as long as `IMG_NAME` is set properly.
 

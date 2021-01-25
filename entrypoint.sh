@@ -18,8 +18,11 @@ SECTORS_TOTAL=$(echo ${FS_INFO} | cut -d " " -f4)
 # offset=0 for everything but RPI
 mount -o loop,offset=$((${SECTORS_START} * ${SECTOR_SIZE})) $IMG_NAME /mnt
 
-if [ "$ENTER_CHROOT" = true ] ; then
-    chroot /mnt
+# enable DNS (this file is generally restored by systemd-resolved when actually booting)
+cp /etc/resolv.conf /mnt/etc/
+
+if [ ! -z ${ENTER_CHROOT+x} ] ; then
+    chroot /mnt "$@"
 fi
 
 exec "$@"
