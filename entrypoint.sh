@@ -21,8 +21,8 @@ mount -o loop,offset=$((${SECTORS_START} * ${SECTOR_SIZE})) $IMG_NAME /mnt
 # enable DNS (this file is generally restored by systemd-resolved when actually booting)
 cp /etc/resolv.conf /mnt/etc/
 
-if [ "$ENTER_CHROOT" = true ] ; then
-    chroot /mnt
+if [ ! -z ${ENTER_CHROOT+x} ] ; then
+    chroot /mnt "$@"
 fi
 
 exec "$@"
